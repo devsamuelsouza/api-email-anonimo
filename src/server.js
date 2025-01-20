@@ -24,7 +24,8 @@ server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())
 server.use(cors({
   origin: '*',
-  methods: ['POST']
+  methods: ['POST'],
+  allowedHeaders: ['Content-Type']
 }))
 
 server.use(routes)
