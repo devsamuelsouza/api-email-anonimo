@@ -33,7 +33,7 @@ server.use(bodyParser.json())
 server.use(routes)
 
 server.use(function (req, res) {
-  res.status(404).redirect({
+  res.status(404).json({
     status: 'error',
     error: 'not found',
   })
