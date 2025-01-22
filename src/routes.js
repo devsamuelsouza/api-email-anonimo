@@ -22,6 +22,7 @@ routes.post('/send/anonymous/email', async (req, res) => {
             status: 'error',
             error: error,
         })
+        console.log(error)
     })
 })
 

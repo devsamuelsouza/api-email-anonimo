@@ -20,11 +20,13 @@ const port = 3333
 
 const server = express()
 
-server.use(cors({
+const corsConfig = {
   origin: '*',
-  methods: ['POST'],
-  allowedHeaders: ['Content-Type']
-}))
+  methods: ['GET', 'POST',],
+  allowedHeaders: ['Content-Type',],
+}
+
+server.use(cors(corsConfig))
 
 server.use(express.json())
 server.use(bodyParser.urlencoded({ extended: false }))
