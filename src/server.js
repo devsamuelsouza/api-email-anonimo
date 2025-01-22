@@ -19,16 +19,19 @@ export { transporter }
 const port = 3333
 
 const server = express()
-server.use(express.json())
-server.use(bodyParser.urlencoded({ extended: false }))
-server.use(bodyParser.json())
+
 server.use(cors({
   origin: '*',
   methods: ['POST'],
   allowedHeaders: ['Content-Type']
 }))
 
+server.use(express.json())
+server.use(bodyParser.urlencoded({ extended: false }))
+server.use(bodyParser.json())
+
 server.use(routes)
+
 server.use(function (req, res) {
   res.status(404).redirect({
     status: 'error',
@@ -37,4 +40,4 @@ server.use(function (req, res) {
 })
 
 server.listen(port,
-  () => console.log('Server is running'))
+  () => console.log('Server is running on port 3333'))
