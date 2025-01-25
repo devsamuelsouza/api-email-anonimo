@@ -5,8 +5,8 @@ configDotenv();
 
 const router = Router();
 
-
 router.get("/cotacao/coins", (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
         {
             method: 'GET',
@@ -18,7 +18,9 @@ router.get("/cotacao/coins", (req, res) => {
         .then(data => {
             res.status(200).send(data.data)
         }).catch(error => {
-            res.status(500).send(error)
+            res.status(500).send({
+                error
+            })
         })
 });
 
