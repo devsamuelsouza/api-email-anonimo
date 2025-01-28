@@ -15,7 +15,7 @@ const corsConfig = {
 
 //Server Config
 server.use(router);
-server.use(cors());
+server.use(cors(corsConfig));
 server.use(bodyParser.json());
 
 //Server Running
