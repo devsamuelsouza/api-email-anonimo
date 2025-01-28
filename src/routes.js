@@ -16,7 +16,7 @@ router.get("/cotacao/coins", (req, res) => {
         }
     ).then(response => response.json())
         .then(data => {
-            res.status(200).send(data.data)
+            res.status(200).send(data);
         }).catch(error => {
             res.status(500).send({
                 error
