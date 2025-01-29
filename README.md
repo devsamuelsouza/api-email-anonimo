@@ -1,6 +1,6 @@
-# API Crypto
+# Anonimail
 
-Esse projeto consiste em uma api com o intuito de obter a cotação das criptomoedas mais populares em tempo real.
+Esse projeto consiste em uma api, com o intuito de enviar emails de forma anônima.
 
 ## 📋 Pré-requisitos
 
@@ -8,7 +8,7 @@ Para utilizar esse projeto de forma local você precisará atender aos seguintes
 
 - [Git](https://git-scm.com/downloads) para instalar o projeto.
 - [Docker](https://www.docker.com/) para rodar o container.
-- [CoinMarketCap](https://coinmarketcap.com/) para obter a chave da API.
+- [Insominia](https://insomnia.rest/download) para enviar a requisição.
 
 ## 🔧 Instalação
 
@@ -19,11 +19,11 @@ Siga esse passo a passo para instalar o projeto:
 - Digite os seguintes comandos 
 
 ```bash
-    git clone https://github.com/devsamuelsouza/api-crypto.git 
+    git clone https://github.com/devsamuelsouza/sendanonimail.git 
 ```
 
 ```bash
-    cd api-crypto
+    cd sendanonimail
 ```
 
 ## 📦 Implantação
@@ -31,42 +31,39 @@ Siga esse passo a passo para instalar o projeto:
 Para implantar o projeto em sua maquina, siga os seguintes passos:
 
 - Abra o terminal (CMD, PowerShell ou Git) no diretorio raiz do projeto
-- Renomeie o arquivo .env.example
-
-```bash
-    mv .env.example .env
-```
-
-- Adicione ao arquivo .env sua API Key e a porta em que deseja rodar a aplicação
-
 - Digite o seguinte comando para criar a imagem no Docker
 
 ```bash
-    docker build -t api-crypto . 
+    docker build -t anonimail . 
 ```
 
 - Após isso, crie o container que irá rodar o projeto
 
 ```bash
-    docker run -p "PORTA_ESCOLHIDA":3333 -d api-crypto
+    docker run -p 3333:3333 -d anonimail
 ```
 
 ## **🧪 Testes**  
 
 Verifique o funcionamento do sistema realizando os seguintes testes:  
 
-- **Envio da requisição:** A requisição deve ser enviada através do método GET para a seguinte rota.
+- **Envio da requisição:** A requisição deve ser enviada através do método post para a seguinte rota e com os seguintes parâmetros.
 
 ```bash
-    http://localhost:PORTA_ESCOLHIDA/cotacao/coins
-```
+    http://localhost:3333/send/anonymous/email
+    Content-Type: application/json
 
-- **Verifique sua conta da CoinMarketCap** Verifique a quantidade de requisições disponiveis.
+    body: {
+        "subject": 
+        "email": 
+        "message": 
+    }
+```
 
 - **Envio de requisições para outras rotas:** Verifique se ao acessar uma rota invalida, a mesma retorna uma menssagem de erro.
 
 *Dica:* Explore possíveis erros ou melhorias na aplicação.  
-*Obs:* A aplicação aceita apenas requisições do tipo GET
+*Obs:* A aplicação aceita apenas requisições do tipo POST
 
 ## **🛠️ Tecnologias e Ferramentas Utilizadas**  
 Este projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:  
@@ -80,11 +77,19 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:
 
 ## **📌 Versão**  
 
-Consulte as [tags neste repositório](https://github.com/devsamuelsouza/api-crypto/tags) para visualizar as versões do projeto.
+Consulte as [tags neste repositório](https://github.com/devsamuelsouza/anonimail/tags) para visualizar as versões do projeto.   
+
+## **📡 Online**  
+
+- Caso queira utilizar a API sem precisar instalar, você pode enviar a requisição para: 
+
+```bash
+    https://email-anonimo.onrender.com/send/anonymous/email
+```
 
 ## **✒️ Autor**  
 Desenvolvido por **Samuel Souza** 🌹  
-- [GitHub](https://github.com/devsamuca)  
+- [GitHub](https://github.com/devsamuelsouza)  
 - [LinkedIn](https://www.linkedin.com/in/devsamuel/)  
 
 ---
