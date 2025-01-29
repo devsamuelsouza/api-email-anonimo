@@ -1,6 +1,6 @@
 # Anonimail
 
-Esse projeto consiste em uma api back-end, com o intuito de enviar emails de forma anônima.
+Esse projeto consiste em uma api, com o intuito de enviar emails de forma anônima.
 
 ## 📋 Pré-requisitos
 
