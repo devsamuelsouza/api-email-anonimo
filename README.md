@@ -37,7 +37,7 @@ Para implantar o projeto em sua maquina, siga os seguintes passos:
     docker build -t anonimail . 
 ```
 
-- Após isso, crie o container que irá rodar a projeto
+- Após isso, crie o container que irá rodar o projeto
 
 ```bash
     docker run -p 3333:3333 -d anonimail
