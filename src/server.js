@@ -9,7 +9,7 @@ const server = express();
 configDotenv();
 
 const corsConfig = {
-    origin: "*",
+    origin: "https://github.com/devsamuelsouza",
     methods: ["GET"],
 }
 
