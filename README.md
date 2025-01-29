@@ -1,105 +1,86 @@
-# **Api - Cryptype**  
-Um catálogo de filmes completo e intuitivo para os amantes de cinema!  
+# API Crypto
 
----
+Esse projeto consiste em uma api com o intuito de obter a cotação das criptomoedas mais populares em tempo real.
 
-## **Índice**  
-- [Pré-requisitos](#pré-requisitos)  
-- [Instalação](#instalação)  
-- [Execução](#execução)  
-- [Testes](#testes)  
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)  
-- [Versão](#versão)  
-- [Autor](#autor)  
+## 📋 Pré-requisitos
 
----
+Para utilizar esse projeto de forma local você precisará atender aos seguintes requisitos:
 
-## **📋 Pré-requisitos**  
-Antes de começar, verifique se você possui o seguinte:  
-- **Node.js e npm:** Instale as versões mais recentes em [nodejs.org](https://nodejs.org/).  
-- **Editor de código:** Visual Studio Code, Sublime Text, ou outro de sua preferência.  
-- **Conta no TMDb:** Crie uma conta para obter sua chave API em [The Movie Database](https://www.themoviedb.org/).  
-- **Git:** Para clonar o repositório do projeto.  
+- [Git](https://git-scm.com/downloads) para instalar o projeto.
+- [Docker](https://www.docker.com/) para rodar o container.
+- [CoinMarketCap](https://coinmarketcap.com/) para obter a chave da API.
 
----
+## 🔧 Instalação
 
-## **🔧 Instalação**  
-Siga os passos abaixo para configurar o projeto localmente:  
+Siga esse passo a passo para instalar o projeto:
 
-1. **Clone o repositório:**  
-   ```bash  
-   git clone https://github.com/devsamuca/catalogo-filmes.git  
-   ```  
+- Instale o Git  clicando [aqui.](https://git-scm.com/downloads) 
+- Abra o Terminal (CMD, PowerShell ou Git) na pasta onde deseja instalar o projeto
+- Digite os seguintes comandos 
 
-2. **Acesse o diretório do projeto:**  
-   ```bash  
-   cd catalogo-filmes  
-   ```  
-3. **Renomeie o arquivo .env.example para .env**
-    ```bash
+```bash
+    git clone https://github.com/devsamuelsouza/api-crypto.git 
+```
+
+```bash
+    cd api-crypto
+```
+
+## 📦 Implantação
+
+Para implantar o projeto em sua maquina, siga os seguintes passos:
+
+- Abra o terminal (CMD, PowerShell ou Git) no diretorio raiz do projeto
+- Renomeie o arquivo .env.example
+
+```bash
     mv .env.example .env
-    ```
-  
+```
 
-4. **Abra o arquivo .env e adicione sua chave do tmdb**
+- Adicione ao arquivo .env sua API Key e a porta em que deseja rodar a aplicação
 
-  
-5. **Instale as dependências:**  
-   ```bash  
-   npm i 
-   ```
+- Digite o seguinte comando para criar a imagem no Docker
 
-6. **Instale o nodemon:**  
-   ```bash  
-   npm i nodemon  
-   ```  
+```bash
+    docker build -t api-crypto . 
+```
 
-7. **Inicie o servidor:**  
-   ```bash  
-   npm run dev  
-   ```  
+- Após isso, crie o container que irá rodar o projeto
 
----
-
-## **⚙️ Execução**  
-Após a instalação, você poderá acessar o sistema no navegador em:  
-`http://localhost:3333`  
-
----
+```bash
+    docker run -p "PORTA_ESCOLHIDA":3333 -d api-crypto
+```
 
 ## **🧪 Testes**  
+
 Verifique o funcionamento do sistema realizando os seguintes testes:  
-- **Funcionalidade dos botões:** Certifique-se de que estão funcionando corretamente.  
-- **Redirecionamento de páginas:** Verifique se os links levam aos destinos corretos.  
-- **Responsividade:** Teste a exibição da página em diferentes tamanhos de tela.  
+
+- **Envio da requisição:** A requisição deve ser enviada através do método GET para a seguinte rota.
+
+```bash
+    http://localhost:PORTA_ESCOLHIDA/cotacao/coins
+```
+
+- **Verifique sua conta da CoinMarketCap** Verifique a quantidade de requisições disponiveis.
+
+- **Envio de requisições para outras rotas:** Verifique se ao acessar uma rota invalida, a mesma retorna uma menssagem de erro.
 
 *Dica:* Explore possíveis erros ou melhorias na aplicação.  
-
----
+*Obs:* A aplicação aceita apenas requisições do tipo GET
 
 ## **🛠️ Tecnologias e Ferramentas Utilizadas**  
 Este projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:  
 
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
-
-
----
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ## **📌 Versão**  
-Consulte as [tags neste repositório](https://github.com/devsamuca/catalogo-filmes/tags) para visualizar as versões do projeto.  
 
----
-
-## **📡 Online**  
-Veja a aplicação no ar clicando [aqui](https://catalogo-filmes-production.up.railway.app/).  
-
----
+Consulte as [tags neste repositório](https://github.com/devsamuca/api-crypto/tags) para visualizar as versões do projeto.
 
 ## **✒️ Autor**  
 Desenvolvido por **Samuel Souza** 🌹  

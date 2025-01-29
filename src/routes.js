@@ -4,10 +4,12 @@ import { configDotenv } from 'dotenv';
 configDotenv();
 
 const router = Router();
+
 //Test
 // https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
+
 router.get("/cotacao/coins", (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://github.com/devsamuelsouza');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
         {
             method: 'GET',

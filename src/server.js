@@ -9,7 +9,7 @@ const server = express();
 configDotenv();
 
 const corsConfig = {
-    origin: "https://github.com/devsamuelsouza",
+    origin: "*",
     methods: ["GET"],
 }
 
@@ -17,6 +17,14 @@ const corsConfig = {
 server.use(router);
 server.use(cors(corsConfig));
 server.use(bodyParser.json());
+
+server.use((req, res) => {
+    res.status(404).send({
+        error: {
+            message: "Página não encontrada"
+        }
+    })
+});
 
 //Server Running
 server.listen(process.env.PORT, () => {
