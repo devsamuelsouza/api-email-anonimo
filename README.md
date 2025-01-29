@@ -77,7 +77,7 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:
 
 ## **📌 Versão**  
 
-Consulte as [tags neste repositório](https://github.com/devsamuca/anonimail/tags) para visualizar as versões do projeto.   
+Consulte as [tags neste repositório](https://github.com/devsamuelsouza/anonimail/tags) para visualizar as versões do projeto.   
 
 ## **📡 Online**  
 
@@ -89,7 +89,7 @@ Consulte as [tags neste repositório](https://github.com/devsamuca/anonimail/tag
 
 ## **✒️ Autor**  
 Desenvolvido por **Samuel Souza** 🌹  
-- [GitHub](https://github.com/devsamuca)  
+- [GitHub](https://github.com/devsamuelsouza)  
 - [LinkedIn](https://www.linkedin.com/in/devsamuel/)  
 
 ---
