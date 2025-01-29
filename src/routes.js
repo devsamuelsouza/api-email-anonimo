@@ -1,30 +1,29 @@
 import { Router } from "express";
-import { configDotenv } from 'dotenv';
+import { configDotenv } from "dotenv";
+import { transporter } from "./server.js";
 
-configDotenv();
+configDotenv()
+const routes = Router();
 
-const router = Router();
+routes.post('/send/anonymous/email', async (req, res) => {
+    const { subject, email, message } = req.body
 
-//Test
-// https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
-
-router.get("/cotacao/coins", (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
-        {
-            method: 'GET',
-            headers: {
-                'X-CMC_PRO_API_KEY': process.env.API_KEY
-            }
-        }
-    ).then(response => response.json())
-        .then(data => {
-            res.status(200).send(data);
-        }).catch(error => {
-            res.status(500).send({
-                error
-            })
+    transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: subject,
+        text: message,
+    }).then(() => {
+        res.status(201).send({
+            status: 'ok',
         })
-});
+    }).catch((error) => {
+        res.status(500).send({
+            status: 'error',
+            error: error,
+        })
+        console.log(error)
+    })
+})
 
-export default router;
+export default routes

@@ -1,32 +1,45 @@
-import express from "express";
-import { configDotenv } from "dotenv";
-import cors from "cors";
-import router from "./routes.js";
-import bodyParser from "body-parser";
+import express from 'express'
+import bodyParser from 'body-parser'
+import nodemailer from 'nodemailer'
+import { configDotenv } from 'dotenv';
+import cors from 'cors'
+import routes from './routes.js'
 
-const server = express();
+configDotenv()
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  secure: process.env.EMAIL_PORT,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
+export { transporter }
 
-configDotenv();
+const port = 3333
+
+const server = express()
 
 const corsConfig = {
-    origin: "*",
-    methods: ["GET"],
+  origin: '*',
+  methods: ['GET', 'POST',],
+  allowedHeaders: ['Content-Type',],
 }
 
-//Server Config
-server.use(router);
-server.use(cors(corsConfig));
-server.use(bodyParser.json());
+server.use(cors(corsConfig))
 
-server.use((req, res) => {
-    res.status(404).send({
-        error: {
-            message: "Página não encontrada"
-        }
-    })
-});
+server.use(express.json())
+server.use(bodyParser.urlencoded({ extended: false }))
+server.use(bodyParser.json())
 
-//Server Running
-server.listen(process.env.PORT, () => {
-    console.log(`Server running on  http://localhost:${process.env.PORT}/cotacao/coins`);
-});
+server.use(routes)
+
+server.use(function (req, res) {
+  res.status(404).json({
+    status: 'error',
+    error: 'not found',
+  })
+})
+
+server.listen(port,
+  () => console.log('Server is running on port 3333'))
