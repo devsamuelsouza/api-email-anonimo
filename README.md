@@ -80,7 +80,7 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:
 
 ## **📌 Versão**  
 
-Consulte as [tags neste repositório](https://github.com/devsamuca/api-crypto/tags) para visualizar as versões do projeto.
+Consulte as [tags neste repositório](https://github.com/devsamuelsouza/api-crypto/tags) para visualizar as versões do projeto.
 
 ## **✒️ Autor**  
 Desenvolvido por **Samuel Souza** 🌹  
