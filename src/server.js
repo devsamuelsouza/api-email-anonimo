@@ -1,20 +1,10 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import nodemailer from 'nodemailer'
 import { configDotenv } from 'dotenv';
 import cors from 'cors'
 import routes from './routes.js'
 
 configDotenv()
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  secure: process.env.EMAIL_PORT,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
-export { transporter }
 
 const port = 3333
 
@@ -31,6 +21,7 @@ server.use(cors(corsConfig))
 server.use(express.json())
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())
+server.use((req, res, next) => { console.log("Request"); next() })
 
 server.use(routes)
 
@@ -41,5 +32,4 @@ server.use(function (req, res) {
   })
 })
 
-server.listen(port,
-  () => console.log('Server is running on port 3333'))
+server.listen(port, () => console.log('Server is running on port 3333'))

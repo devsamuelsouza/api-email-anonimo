@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { configDotenv } from "dotenv";
-import { transporter } from "./server.js";
+import transporter from "./transporter.js";
 
-configDotenv()
+configDotenv();
 const routes = Router();
 
 routes.post('/send/anonymous/email', async (req, res) => {
@@ -14,7 +14,7 @@ routes.post('/send/anonymous/email', async (req, res) => {
         subject: subject,
         text: message,
     }).then(() => {
-        res.status(201).send({
+        res.status(200).send({
             status: 'ok',
         })
     }).catch((error) => {
@@ -22,8 +22,8 @@ routes.post('/send/anonymous/email', async (req, res) => {
             status: 'error',
             error: error,
         })
-        console.log(error)
+        res.status(500).send(error)
     })
-})
+});
 
 export default routes
