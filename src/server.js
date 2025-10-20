@@ -21,7 +21,6 @@ server.use(cors(corsConfig))
 server.use(express.json())
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())
-server.use((req, res, next) => { console.log("Request"); next() })
 
 server.use(routes)
 

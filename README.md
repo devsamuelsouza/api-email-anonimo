@@ -84,7 +84,7 @@ Consulte as [tags neste repositório](https://github.com/devsamuelsouza/anonimai
 - Caso queira utilizar a API sem precisar instalar, você pode enviar a requisição para: 
 
 ```bash
-    https://email-anonimo.onrender.com/send/anonymous/email
+    https://email-anonimo.onrender.com/send
 ```
 
 ## **✒️ Autor**  

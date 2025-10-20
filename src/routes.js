@@ -5,7 +5,7 @@ import transporter from "./transporter.js";
 configDotenv();
 const routes = Router();
 
-routes.post('/send/anonymous/email', async (req, res) => {
+routes.post('/send', async (req, res) => {
     const { subject, email, message } = req.body
 
     transporter.sendMail({
