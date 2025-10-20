@@ -50,7 +50,7 @@ Verifique o funcionamento do sistema realizando os seguintes testes:
 - **Envio da requisição:** A requisição deve ser enviada através do método post para a seguinte rota e com os seguintes parâmetros.
 
 ```bash
-    http://localhost:3333/send/anonymous/email
+    http://localhost:3333/send
     Content-Type: application/json
 
     body: {
@@ -93,3 +93,4 @@ Desenvolvido por **Samuel Souza** 🌹
 - [LinkedIn](https://www.linkedin.com/in/devsamuel/)  
 
 ---
+
